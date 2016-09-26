@@ -22,8 +22,7 @@ Making a batch request:
     {method: "post",   url: "/orders/new",  params: {dish_id: 123}},
     {method: "get",    url: "/oh/no/error", headers: {break: "fast"}},
     {method: "delete", url: "/patrons/456"}
-  ],
-  sequential: true
+  ]
 }
 ```
 
@@ -60,15 +59,6 @@ precendence. (optional)
 * _silent_ - whether to return a response for this request. You can save on
 transfer if, for instance, you're making several PUT/POST requests, then
 executing a GET at the end.
-
-These individual operations are supplied as the "ops" parameter in the
-overall request.  Other options include:
-
-* _sequential_ - execute all operations sequentially, rather than in parallel.
-*This parameter is currently REQUIRED and must be set to true.* (In the future
-the Batch API will offer parallel processing for thread-safe apps, and hence
-this parameter must be supplied in order to explicitly preserve expected
-behavior.)
 
 Other options may be provided in the future for both the global request
 and individual operations.
