@@ -82,7 +82,7 @@ module BatchApi
           "#{ops.length} were provided"
       else
         ops.map do |op|
-          self.class.operation_klass.new(op.last, @env, @app)
+          self.class.operation_klass.new(op, @env, @app)
         end
       end
     end

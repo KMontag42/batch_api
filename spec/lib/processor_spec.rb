@@ -59,13 +59,6 @@ describe BatchApi::Processor do
     end
 
     context "error conditions" do
-      it "(currently) throws an error if sequential is not true" do
-        request.params.delete("sequential")
-        expect {
-          BatchApi::Processor.new(request, app)
-        }.to raise_exception(BatchApi::Errors::BadOptionError)
-      end
-
       it "raise a OperationLimitExceeded error if too many ops provided" do
         ops = (BatchApi.config.limit + 1).to_i.times.collect {|i| i}
         request.params["ops"] = ops
